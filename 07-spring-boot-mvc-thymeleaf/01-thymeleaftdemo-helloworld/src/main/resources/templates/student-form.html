@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Form</title>
+</head>
+<body>
+<h3>Student Registration Form</h3>
+<form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
+    <div>
+        <label for="firstName">
+            First name:
+        </label>
+        <input type="text" th:field="*{firstName}" id="firstName" />
+    </div>
+    <div>
+        <label for="lastName">Last name:</label>
+        <input type="text" th:field="*{lastName}" id="lastName" />
+    </div>
+    <div>
+        <label for="country">Country:</label>
+        <select th:field="*{country}" id="country">
+            <option th:value="Brazil">Brazil</option>
+            <option th:value="USA">USA</option>
+            <option th:value="Australia">Australia</option>
+            <option th:value="Canada">Canada</option>
+        </select>
+    </div>
+<!--    <div>-->
+<!--        <p>Highest Level of Education:</p>-->
+<!--        <input type="radio" id="highSchool" name="education" th:value="High School" th:field="*{education}" />-->
+<!--        <label for="highSchool">High School</label>-->
+
+<!--        <input type="radio" id="bachelors" name="education" th:value="Bachelors" th:field="*{education}" />-->
+<!--        <label for="bachelors">Bachelors</label>-->
+
+<!--        <input type="radio" id="mastersPlus" name="education" th:value="Masters or Higher" th:field="*{education}" />-->
+<!--        <label for="mastersPlus">Masters or Higher</label>-->
+<!--    </div>-->
+    <div>
+        <input type="submit" value="Submit" />
+    </div>
+</form>
+
+</body>
+</html>
