@@ -16,10 +16,14 @@ public class StudentController {
     @Value("${countries}")
     private List<String> countries;
 
+    @Value("${education}")
+    private List<String> education;
+
     @GetMapping("/showStudentForm")
     public String showForm(Model model) {
         model.addAttribute("student", new Student());
         model.addAttribute("countries", countries);
+        model.addAttribute("education", education);
         return "student-form";
     }
 
@@ -27,6 +31,7 @@ public class StudentController {
     public String processForm(@ModelAttribute("student") Student student) {
         String fullName = student.getFirstName() + " " + student.getLastName();
         System.out.println(fullName);
+        System.out.println(student.getInterests());
         return "student-confirmation";
     }
 }

@@ -24,15 +24,15 @@
         </select>
     </div>
     <div>
-        <div>Highest Level of Education:</div>
-        <input type="radio" value="High School" th:field="*{education}" />
-        <label>High School</label>
-
-        <input type="radio" value="Bachelors" th:field="*{education}" />
-        <label>Bachelors</label>
-
-        <input type="radio" value="Masters or Higher" th:field="*{education}" />
-        <label>Masters or Higher</label>
+        <span>Highest Level of Education:</span>
+        <input th:field="*{education}" type="radio" th:each="option : ${education}" th:value="${option}" th:text="${option}" />
+    </div>
+    <div>
+        <span>Interests:</span>
+        <input type="checkbox" th:field="*{interests}" th:value="Hiking">Hiking</input>
+        <input type="checkbox" th:field="*{interests}" th:value="Shopping">Shopping</input>
+        <input type="checkbox" th:field="*{interests}" th:value="Reading">Reading</input>
+        <input type="checkbox" th:field="*{interests}" th:value="'Yelling at Clouds'">Yelling at Clouds</input>
     </div>
     <div>
         <input type="submit" value="Submit" />
