@@ -20,23 +20,20 @@
     <div>
         <label for="country">Country:</label>
         <select th:field="*{country}" id="country">
-            <option th:value="Brazil">Brazil</option>
-            <option th:value="USA">USA</option>
-            <option th:value="Australia">Australia</option>
-            <option th:value="Canada">Canada</option>
+            <option th:each="country : ${countries}" th:value="${country}" th:text="${country}"></option>
         </select>
     </div>
-<!--    <div>-->
-<!--        <p>Highest Level of Education:</p>-->
-<!--        <input type="radio" id="highSchool" name="education" th:value="High School" th:field="*{education}" />-->
-<!--        <label for="highSchool">High School</label>-->
+    <div>
+        <div>Highest Level of Education:</div>
+        <input type="radio" value="High School" th:field="*{education}" />
+        <label>High School</label>
 
-<!--        <input type="radio" id="bachelors" name="education" th:value="Bachelors" th:field="*{education}" />-->
-<!--        <label for="bachelors">Bachelors</label>-->
+        <input type="radio" value="Bachelors" th:field="*{education}" />
+        <label>Bachelors</label>
 
-<!--        <input type="radio" id="mastersPlus" name="education" th:value="Masters or Higher" th:field="*{education}" />-->
-<!--        <label for="mastersPlus">Masters or Higher</label>-->
-<!--    </div>-->
+        <input type="radio" value="Masters or Higher" th:field="*{education}" />
+        <label>Masters or Higher</label>
+    </div>
     <div>
         <input type="submit" value="Submit" />
     </div>
