@@ -29,10 +29,7 @@
     </div>
     <div>
         <span>Interests:</span>
-        <input type="checkbox" th:field="*{interests}" th:value="Hiking">Hiking</input>
-        <input type="checkbox" th:field="*{interests}" th:value="Shopping">Shopping</input>
-        <input type="checkbox" th:field="*{interests}" th:value="Reading">Reading</input>
-        <input type="checkbox" th:field="*{interests}" th:value="'Yelling at Clouds'">Yelling at Clouds</input>
+        <input type="checkbox" th:field="*{interests}" th:each="interest : ${interests}" th:value="${interest}" th:text="${interest}" />
     </div>
     <div>
         <input type="submit" value="Submit" />

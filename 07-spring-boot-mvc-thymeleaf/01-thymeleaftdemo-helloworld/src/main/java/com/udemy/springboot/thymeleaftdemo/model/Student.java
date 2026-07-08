@@ -8,7 +8,7 @@ public class Student {
     private String lastName;
     private String country;
     private String education;
-    private List<String> interests = new ArrayList<>();
+    private List<String> interests;
 
     public Student(String firstName, String lastName) {
         this.firstName = firstName;
@@ -54,13 +54,7 @@ public class Student {
         return interests;
     }
 
-    public void setInterest(String interest) {
-        interests.add(interest);
-    }
-
     public void setInterests(List<String> interests) {
-        for (String interest : interests) {
-            setInterest(interest);
-        }
+        this.interests = interests;
     }
 }
