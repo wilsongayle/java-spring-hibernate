@@ -5,6 +5,9 @@
     <title>Customer Confirmation</title>
 </head>
 <body>
-    <p>The customer is confirmed <span th:text="${customer.firstName + ' ' + customer.lastName}"/></p>
+    <p>The customer is confirmed <span th:text="${customer.firstName + ' ' + customer.lastName}"/> in postal code
+        <span th:text="${customer.postalCode}" /></p>
+    <p>You have <span th:text="${customer.freePasses}"/> Free Passes</p>
+    <p>Course Code: <span th:text="${customer.courseCode}" /></p>
 </body>
 </html>
