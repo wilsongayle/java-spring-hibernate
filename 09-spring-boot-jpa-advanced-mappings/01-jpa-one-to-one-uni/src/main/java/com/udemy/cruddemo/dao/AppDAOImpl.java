@@ -24,4 +24,18 @@ public class AppDAOImpl implements AppDAO {
     public void save(Instructor instructor) {
         entityManager.persist(instructor);
     }
+
+    // Returns InstructorDetail too - One-to-One default is eager
+    @Override
+    public Instructor findInstructorById(int id) {
+        return entityManager.find(Instructor.class, id);
+    }
+
+    // Will also delete associated InstructorDetail because of Cascade.Type ALL
+    @Override
+    @Transactional
+    public void deleteInstructorById(int id) {
+        Instructor instructor = findInstructorById(id);
+        entityManager.remove(instructor);
+    }
 }
