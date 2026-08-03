@@ -27,7 +27,7 @@ public class CruddemoApplication {
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
-		int id = 1;
+		int id = 2;
 		System.out.println("Deleting instructor detail: " + id);
 		appDAO.deleteInstructorDetailById(id);
 		System.out.println("Done");
@@ -55,8 +55,8 @@ public class CruddemoApplication {
 
 	private void createInstructor(AppDAO appDAO) {
 		// create the instructor
-		Instructor instructor = new Instructor("Barbara", "Anne", "banne@gmail.com");
-		InstructorDetail instructorDetail = new InstructorDetail("ba", "music");
+		Instructor instructor = new Instructor("Bob", "Belcher", "bob@burgers.com");
+		InstructorDetail instructorDetail = new InstructorDetail("bburgers", "Food");
 
 		// associate the objects
 		instructor.setInstructorDetail(instructorDetail);
