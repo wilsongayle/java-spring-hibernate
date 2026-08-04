@@ -28,12 +28,25 @@ public class CruddemoApplication {
 //			deleteInstructorDetail(appDAO);
 //			createInstructorWithCourses(appDAO);
 //			findInstructorWithCourse(appDAO);
-			findCoursesForInstructor(appDAO);
+//			findCoursesForInstructor(appDAO);
+			findInstructorWithJoinFetch(appDAO);
 		};
 
 	}
 
-	// Fixes lazy load error
+	// Fixes lazy load error - similar to eager loading without hard coding for everything (preserves flexibility)
+	private void findInstructorWithJoinFetch(AppDAO appDAO) {
+		int id = 1;
+
+		System.out.println("Finding instructor id " + id);
+		Instructor instructor = appDAO.findInstructorByIdJoinFetch(id);
+
+		System.out.println("instructor: " + instructor);
+		System.out.println("the courses: " + instructor.getCourses());
+		System.out.println("Done");
+	}
+
+	// Fixes lazy load error - but requires separate query
 	private void findCoursesForInstructor(AppDAO appDAO) {
 		int id = 1;
 
