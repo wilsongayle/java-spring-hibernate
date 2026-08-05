@@ -29,9 +29,45 @@ public class CruddemoApplication {
 //			createInstructorWithCourses(appDAO);
 //			findInstructorWithCourse(appDAO);
 //			findCoursesForInstructor(appDAO);
-			findInstructorWithJoinFetch(appDAO);
+//			findInstructorWithJoinFetch(appDAO);
+//			updateInstructor(appDAO);
+//			updateCourse(appDAO);
+			deleteCourseById(appDAO);
 		};
 
+	}
+
+	private void deleteCourseById(AppDAO appDAO) {
+		int id = 11;
+
+		System.out.println("Deleting course id " + id);
+		appDAO.deleteCourseById(id);
+
+		System.out.println("Done");
+	}
+
+	private void updateCourse(AppDAO appDAO) {
+		int id = 10;
+		System.out.println("Finding course id: " + id);
+		Course course = appDAO.findCourseById(id);
+
+		System.out.println("Updating course id: " + id);
+		course.setTitle("Beginning Burgers with Bob");
+
+		appDAO.update(course);
+		System.out.println("Done");
+	}
+
+	private void updateInstructor(AppDAO appDAO) {
+		int id = 1;
+		System.out.println("Finding instructor id: " + id);
+		Instructor instructor = appDAO.findInstructorById(id);
+
+		System.out.println("Updating instructor id: " + id);
+		instructor.setEmail("bobsburgers@seymoursbay.com");
+
+		appDAO.update(instructor);
+		System.out.println("Done");
 	}
 
 	// Fixes lazy load error - similar to eager loading without hard coding for everything (preserves flexibility)
@@ -112,7 +148,7 @@ public class CruddemoApplication {
 	}
 
 	private void deleteInstructor(AppDAO appDAO) {
-		int id = 2;
+		int id = 1;
 		System.out.println("Deleting instructor id: " + id);
 		appDAO.deleteInstructorById(id);
 		System.out.println("Done");
